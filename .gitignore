@@ -1,0 +1,12 @@
+
+**/**/.settings
+**/**/.vscode
+**/**/.cache
+**/**/.project
+**/**/.DS_Store
+**/**/.classpath
+**/**/.idea
+**/**/*.iml
+**/**/target
+**/**/spike-*
+**/out/

@@ -1,0 +1,9 @@
+# This is Git's per-user configuration file.
+[user]
+	name = Kyle Hall
+	email = khall@pillartechnology.com
+[core]
+	excludesfile = /Users/kyle/.gitignore
+
+[includeIf "gitdir:~/workspaces/wf/"]
+	path = ~/.gitconfig-workiva
