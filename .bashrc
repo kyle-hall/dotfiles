@@ -6,17 +6,18 @@ alias gmit="git commit -m"
 alias gecko="git checkout"
 alias gush="git push"
 alias gad="git add"
+alias gmm="git checkout master && git pull && git checkout - && git merge master"
 alias la="ls -a"
 alias ll="ls -lh"
-alias ep="elm-package"
-alias and="&&"
-alias fsviewer="docker run -d -p 4222:4222 --rm nats & ./gradlew build && java -jar server/build/libs/fs-viewer-server.jar --local-dev=true"
-alias fsskynet=run_fsskynet
-alias ddev="pub run dart_dev "
 
 if [ -f ~/.git-completion.bash ]; then
 	. ~/.git-completion.bash
 fi
+
+if [ -f ~/.config/exercism/exercism_completion.bash ]; then
+  . ~/.config/exercism/exercism_completion.bash
+fi
+
 
 GOPATH="/Users/kyle/go/src"
 GOBIN="/Users/kyle/go/bin"
@@ -25,29 +26,20 @@ parse_git_branch() {
 	git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/ (\1)/'
 }
 
-run_fsskynet() {
-	./skynet/skynet-env-teardown.sh &&
-	./skynet/skynet-env-setup.sh &&
-	./skynet/skynet-test.sh
-}
-
 LS_COLORS='di=1:fi=0:ln=31:pi=5:so=5:bd=5:cd=5:or=31:mi=0:ex=35:*.rpm=90'
 export LS_COLORS
-
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
 
 export JAVA_HOME="/Library/Java/JavaVirtualMachines/jdk1.8.0_141.jdk/Contents/Home"
 export PS1="\u \[\033[32m\]\w\[\033[33m\]\$(parse_git_branch)\[\033[00m\] $ "
 export PATH=$PATH:$GOBIN
+export AWS_DEFAULT_REGION=us-east-2
+export DARK_SKY_API_KEY=0363906648fc52b3039e33c27ab08eaa
+export WEATHER_APP_GOOGLE_API_KEY=AIzaSyDx0pR09cHwOEWbR7MapIaof1qgvywLSag
 
-# Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+export PATH="/Users/kyle/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
-[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm" # Load RVM into a shell session *as a function*
+export NVM_DIR=~/.nvm
+. "/usr/local/opt/nvm/nvm.sh"
 
-export PATH="$HOME/.cargo/bin:$PATH"
-
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="/Users/kyle/.sdkman"
-[[ -s "/Users/kyle/.sdkman/bin/sdkman-init.sh" ]] && source "/Users/kyle/.sdkman/bin/sdkman-init.sh"
