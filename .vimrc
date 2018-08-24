@@ -1,6 +1,7 @@
 
 set nocompatible
 syntax on
+" set termguicolors
 set nowrap
 set encoding=utf8
 
@@ -19,12 +20,17 @@ Plugin 'gmarik/Vundle.vim'
 " Utility
 
 " ---------------------------------------
-" Language Support
+"  Language Support
 " ---------------------------------------
 
-" Python
-
 Plugin 'vim-python/python-syntax'
+Plugin 'fatih/vim-go'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'pangloss/vim-javascript'
+Plugin 'tpope/vim-markdown'
+Plugin 'mxw/vim-jsx'
+Plugin 'othree/html5.vim'
+Plugin 'dart-lang/dart-vim-plugin'
 
 set backspace=indent,eol,start
 
@@ -33,23 +39,31 @@ filetype plugin indent on
 
 " End Vundle Configuration
 
+" ---------------------------------------
+"  Color Schemes
+" ---------------------------------------
+
+Plugin 'liuchengxu/space-vim-dark'
+
 " ----------------------------------------
-" Settings
+"  Settings
 " ----------------------------------------
 
 set number
 set ruler
 
-set tabstop=4
-set shiftwidth=4
-set smarttab
+filetype plugin indent on
+
+set tabstop=2
+set shiftwidth=2
+set expandtab
 
 set laststatus=2
 
 set cursorline
 
 set t_Co=256
-set background=dark
+colorscheme space-vim-dark
 
 " ----------------------------------------
 "  Mappings
