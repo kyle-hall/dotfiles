@@ -26,24 +26,21 @@ module.exports = {
     // terminal text color under BLOCK cursor
     cursorAccentColor: '#000',
 
-    // `'BEAM'` for |, `'UNDERLINE'` for _, `'BLOCK'` for █
     cursorShape: 'BLOCK',
 
-    // set to `true` (without backticks and without quotes) for blinking cursor
     cursorBlink: false,
 
     // color of the text
-    foregroundColor: '#fff',
+    foregroundColor: 'rgba(255, 255, 255, 0.3)',
 
     // terminal background color
     // opacity is only supported on macOS
     backgroundColor: '#000',
 
-    // terminal selection color
-    selectionColor: 'rgba(248,28,229,0.3)',
+    borderColor: '#000',
 
-    // border color (window, tabs)
-    borderColor: '#333',
+    // terminal selection color
+    selectionColor: 'rgba(248,28,229,0.8)',
 
     // custom CSS to embed in the main window
     css: '',
@@ -82,22 +79,10 @@ module.exports = {
       lightBlue: '#6A76FB',
       lightMagenta: '#FD7CFC',
       lightCyan: '#68FDFE',
-      lightWhite: '#FFFFFF',
+      lightWhite: '#FFFFFF'
     },
 
-    // the shell to run when spawning a new session (i.e. /usr/local/bin/fish)
-    // if left empty, your system's login shell will be used by default
-    //
-    // Windows
-    // - Make sure to use a full path if the binary name doesn't work
-    // - Remove `--login` in shellArgs
-    //
-    // Bash on Windows
-    // - Example: `C:\\Windows\\System32\\bash.exe`
-    //
-    // PowerShell on Windows
-    // - Example: `C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe`
-    shell: '',
+    shell: '/bin/zsh',
 
     // for setting shell arguments (i.e. for using interactive shellArgs: `['-i']`)
     // by default `['--login']` will be used
@@ -113,7 +98,7 @@ module.exports = {
     copyOnSelect: false,
 
     // if `true` (without backticks and without quotes), hyper will be set as the default protocol client for SSH
-    defaultSSHApp: true,
+    defaultSSHApp: true
 
     // if `true` (without backticks and without quotes), on right click selected text will be copied or pasted if no
     // selection is present (`true` by default on Windows and disables the context menu feature)
@@ -125,21 +110,12 @@ module.exports = {
     // for advanced config flags please refer to https://hyper.is/#cfg
   },
 
-  // a list of plugins to fetch and install from npm
-  // format: [@org/]project[#version]
-  // examples:
-  //   `hyperpower`
-  //   `@company/project`
-  //   `project#1.0.1`
-  plugins: ["hypercwd", "hyper-pane", "hyper-night-owl"],
+  plugins: ['hypercwd', 'hyper-pane', 'an-old-hype'],
 
-  // in development, you can create a directory under
-  // `~/.hyper_plugins/local/` and include it here
-  // to load it and avoid it being `npm install`ed
   localPlugins: [],
 
   keymaps: {
     // Example
     // 'window:devtools': 'cmd+alt+o',
-  },
-};
+  }
+}
